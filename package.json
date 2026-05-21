@@ -1,0 +1,42 @@
+{
+  "name": "hailey-portfolio",
+  "version": "1.0.0",
+  "description": "Hailey Project Test 신난다 나의 첫번째 바이브코딩 프로젝트",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hwainhaileyahn-gif/Project-Test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hwainhaileyahn-gif/Project-Test/issues"
+  },
+  "homepage": "https://github.com/hwainhaileyahn-gif/Project-Test#readme",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "next": "^16.2.6",
+    "playwright": "^1.60.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.6",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
+  }
+}
