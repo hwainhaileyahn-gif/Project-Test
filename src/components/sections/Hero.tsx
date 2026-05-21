@@ -17,7 +17,7 @@ export default function Hero() {
               Hailey입니다
             </h1>
             <h2 className="mt-4 text-xl text-neutral-600 font-normal">
-              디자인과 개발을 함께하는 크리에이터
+              투자/구조개편 전문가
             </h2>
             <p className="mt-6 text-neutral-600 leading-relaxed max-w-md">
               사용자 경험을 중심으로 생각하고, 아이디어를 실제로 구현하는
