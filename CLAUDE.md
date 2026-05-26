@@ -69,6 +69,44 @@ src/
 | `--color-neutral-900` | `#111111` | 헤딩 |
 | `--color-neutral-600` | `#525252` | 본문 |
 
+## Database (Supabase + Drizzle ORM)
+
+### ⚠️ DB 작업 전 반드시 확인할 파일
+
+| 파일 | 역할 |
+|---|---|
+| `docs/db/erd.md` | **ERD 및 테이블 설계 문서** — 스키마 변경 전 여기서 구조 파악 |
+| `drizzle/schema.ts` | Drizzle 스키마 정의 — 테이블 추가/수정 시 이 파일을 수정 |
+| `drizzle.config.ts` | Drizzle Kit 설정 |
+| `src/lib/db.ts` | DB 클라이언트 (서버 컴포넌트·Server Actions에서 import) |
+
+### DB 작업 규칙
+
+1. **스키마 변경** 시 `drizzle/schema.ts` 수정 → `npm run db:push` (개발) 또는 `npm run db:generate` + `npm run db:migrate` (프로덕션)
+2. **ERD 변경** 시 `docs/db/erd.md`의 Mermaid 다이어그램도 함께 업데이트
+3. `ended_at IS NULL` = 현재 재직 중 / 재학 중으로 처리 (`is_current` 컬럼 없음)
+4. 모든 테이블에 `sort_order` 컬럼이 있으므로 프론트엔드 표시 순서는 이 값으로 제어
+
+### DB 명령어
+
+```bash
+npm run db:push       # 스키마를 DB에 즉시 반영 (개발용)
+npm run db:generate   # 마이그레이션 파일 생성
+npm run db:migrate    # 마이그레이션 실행
+npm run db:studio     # Drizzle Studio GUI 실행
+```
+
+### 테이블 목록
+
+| 테이블 | 설명 |
+|---|---|
+| `experiences` | 경력 (입사일·퇴사일 포함) |
+| `experience_descriptions` | 경력 상세 설명 (1:N) |
+| `educations` | 학력 |
+| `skills` | 핵심 역량 |
+| `projects` | 프로젝트 |
+| `project_tags` | 프로젝트 태그 (1:N) |
+
 ## Deployment
 
 Vercel 배포 권장. `main` 브랜치 push 시 자동 재배포.
