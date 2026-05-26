@@ -18,9 +18,18 @@ export interface Experience {
   current: boolean;
 }
 
+export interface Education {
+  id: string;
+  school: string;
+  degree: string;
+  major: string;
+  period: string;
+  description?: string;
+}
+
 export interface Skill {
   name: string;
-  category: "frontend" | "backend" | "design" | "tool" | "etc";
+  category: "finance" | "strategy" | "tool" | "legal" | "etc";
 }
 
 export interface NavLink {
