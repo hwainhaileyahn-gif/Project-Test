@@ -4,6 +4,7 @@ import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 import Resume from "@/components/sections/Resume";
 import Contact from "@/components/sections/Contact";
+import JobListings from "@/components/sections/JobListings";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Projects />
       <Resume />
       <Contact />
+      <JobListings />
     </>
   );
 }

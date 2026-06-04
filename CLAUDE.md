@@ -107,6 +107,29 @@ npm run db:studio     # Drizzle Studio GUI 실행
 | `projects` | 프로젝트 |
 | `project_tags` | 프로젝트 태그 (1:N) |
 
+## API 연동 규칙
+
+### ⚠️ API 작업 전 반드시 확인할 파일
+
+| 파일 | 역할 |
+|---|---|
+| `docs/api/` | **외부 API 스펙 문서 디렉토리** — API 연동 전 여기서 엔드포인트·타입·인증 방식 파악 |
+| `src/lib/` | API 클라이언트 유틸리티 위치 (예: `jsearch.ts`) |
+| `src/app/api/` | Next.js API Route 위치 — 외부 API 키를 클라이언트에 노출하지 않기 위해 반드시 서버 사이드에서만 호출 |
+
+### API 연동 시 지켜야 할 규칙
+
+1. **새 API 연동 시** `docs/api/<서비스명>-spec.md` 스펙 파일을 먼저 작성 (또는 기존 파일 확인)
+2. **API 키는 서버 사이드 전용** — `NEXT_PUBLIC_` 접두사 사용 금지, `.env.local`과 Vercel 환경 변수에만 저장
+3. **클라이언트 → API Route → 외부 API** 흐름 준수 (클라이언트에서 외부 API 직접 호출 금지)
+4. **TypeScript 타입** 은 스펙 문서 스키마 기반으로 `src/lib/<서비스명>.ts` 에 정의
+
+### 현재 등록된 API 스펙
+
+| 파일 | 서비스 | 클라이언트 |
+|---|---|---|
+| `docs/api/job-spec.md` | RapidAPI JSearch (채용 공고 검색) | `src/lib/jsearch.ts` |
+
 ## Deployment
 
 Vercel 배포 권장. `main` 브랜치 push 시 자동 재배포.

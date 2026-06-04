@@ -8,6 +8,7 @@ const navLinks: NavLink[] = [
   { label: "프로젝트", href: "#projects" },
   { label: "경력", href: "#resume" },
   { label: "연락하기", href: "#contact" },
+  { label: "채용공고", href: "#jobs" },
 ];
 
 export default function Navbar() {
